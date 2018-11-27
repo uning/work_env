@@ -1,0 +1,151 @@
+# Path to your oh-my-zsh installation.
+export ZSH=/Users/playcrab/.oh-my-zsh
+
+# Set name of the theme to load.
+# Look in ~/.oh-my-zsh/themes/
+# Optionally, if you set this to "random", it'll load a random theme each
+# time that oh-my-zsh is loaded.
+ZSH_THEME="af-magic"
+#ZSH_THEME="random"
+
+# Uncomment the following line to use case-sensitive completion.
+CASE_SENSITIVE="true"
+
+# Uncomment the following line to use hyphen-insensitive completion. Case
+# sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
+
+# Uncomment the following line to disable bi-weekly auto-update checks.
+# DISABLE_AUTO_UPDATE="true"
+
+# Uncomment the following line to change how often to auto-update (in days).
+export UPDATE_ZSH_DAYS=13
+
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
+
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
+
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+# COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# HIST_STAMPS="mm/dd/yyyy"
+
+# Would you like to use another custom folder than $ZSH/custom?
+ZSH_CUSTOM=~/gitrepo/workconfig/zsh/custom
+
+
+
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+#plugins=(git battery z redis-cli node yii2 brew coffee future history)
+plugins=(git composer battery z redis-cli node yii2 brew coffee future)
+
+
+#不自动加载compfix use lcompfix to
+ZSH_DISABLE_COMPFIX=true
+
+# User configurationcp
+export befor_ms=0
+export now_ms
+
+msGet(){
+    php -r '{echo round(microtime(true)*1000);}';
+}
+msCost(){
+    now_ms=$(msGet);
+    if [ $befor_ms != 0 ] ; then
+        ms=$(expr ${now_ms} - ${befor_ms}) 
+        echo  "Cost Time(ms): $ms $1"
+    else
+        echo "Begin Time $1"
+    fi
+    befor_ms=$(msGet)
+}
+
+
+#
+export GOPATH=/Users/playcrab/go
+export GEM_HOME=$HOME/.gem
+paths=(
+$HOME/.nvm/versions/node/v8.9.4/bin
+$HOME/.yarn/bin
+$GEM_HOME/bin
+$HOME/.rvm/bin
+$HOME/bin
+$HOME/.composer/vender/bin
+$HOME/gitrepo/cocos2d-js/tools/cocos2d-console/bin
+$HOME/work/sys/scala/bin
+$GOPATH/bin
+/usr/local/go/bin
+/usr/local/bin
+/usr/local/sbin
+/usr/bin
+/usr/sbin
+/bin
+/sbin
+)
+PATH='.'
+for p in $paths
+do
+    PATH="$PATH:$p"
+done
+
+export PATH
+
+# export MANPATH="/usr/local/man:$MANPATH"
+
+source $ZSH/oh-my-zsh.sh
+
+
+#share command history with different bash ttys
+export HISTCONTROL=ignoredups
+export HISTIGNORE="[   ]*:&:bg:fg:exit"
+export HISTFILESIZE=1000000000
+export HISTSIZE=1000000
+alias gh='history | grep '
+
+
+#for android-sdk
+export ANDROID_HOME=/usr/local/opt/android-sdk
+
+export DISPLAY=:0
+
+export LC_ALL=en_US.UTF-8
+export EDITOR=vim
+
+# for brew install speed ,use github api_key
+export HOMEBREW_GITHUB_API_TOKEN=805538ae07f206001935f0aabc54e83ba43c6b1d
+export HOMEBREW_NO_AUTO_UPDATE=true
+export GIT_SSL_NO_VERIFY=true
+export HOMEBREW_BOTTLE_DOMAIN='https://mirrors.ustc.edu.cn/homebrew-bottles'
+
+
+
+
+## alias for rc files
+alias zshrc="vim ~/.zshrc"
+alias ohmyzsh="vim ~/.oh-my-zsh"
+alias rrc="source ~/.zshrc"
+alias vimrc="vim ~/.vimrc"
+
+##others
+alias q='exit'
+alias rrf='rm -rf'
+alias cpr='cp -r'
+alias bnode=babel-node
+
