@@ -44,7 +44,8 @@ export UPDATE_ZSH_DAYS=13
 # HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
-ZSH_CUSTOM=~/gitrepo/workconfig/zsh/custom
+#
+ZSH_CUSTOM=~/gitrepo/work_env/zsh/custom
 
 
 
