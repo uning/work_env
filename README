@@ -1,4 +1,7 @@
 # zsh
 zsh config
+cp zsh/zshrc ~/.zshrc 
+修改.zshrc文
 # vim
 vim config
+
