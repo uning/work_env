@@ -23,8 +23,11 @@ function lnvm(){
     git fetch origin
     git checkout `git describe --abbrev=0 --tags --match "v[0-9]*" origin`
     )
-    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-    [[ -r $NVM_DIR/bash_completion  ]] && . $NVM_DIR/bash_completion
+ #   [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+ #   [[ -r $NVM_DIR/bash_completion  ]] && . $NVM_DIR/bash_completion
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
     echo nvm loaded
 }
 
@@ -35,6 +38,6 @@ function lrvm(){
     echo rvm loaded
 }
 
-tput setaf 2
-echo  "for load time reason, [lrvm lnvm lcomposer lcompdumpf], load for need"
-tput sgr0
+#tput setaf 2
+#echo  "for load time reason, [lrvm lnvm lcomposer lcompdumpf], load for need"
+#tput sgr0
